@@ -1,18 +1,31 @@
 public class LargestPrime {
 
+    public static void main(String[] args) {
+        System.out.println(getLargestPrime(199));
+    }
+
     public static int getLargestPrime(int number) {
         if (number < 0) {
             return -1;
         }
 
-        int largest = -1;
+        int largestPrime = -1;
+        int i = 2;
 
-        for (int i = 2; i < number; i++) {
-            if (number % i == 0) {
-                largest = number;
+        while (i * i <= number) {
+
+            while (number % i == 0) {
+                largestPrime = i;
+                number /= i;
             }
+
+            i++;
         }
 
-        return largest;
+        if (number > 1) {
+            largestPrime = number;
+        }
+
+        return largestPrime;
     }
 }
