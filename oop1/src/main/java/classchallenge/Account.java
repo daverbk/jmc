@@ -2,7 +2,6 @@ package classchallenge;
 
 public class Account {
     private double balance;
-
     private String number;
     private String customerName;
     private String email;
