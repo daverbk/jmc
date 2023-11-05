@@ -5,10 +5,8 @@ public class HybridCar extends Car {
     private int cylinders;
     private int batterySize;
 
-    public HybridCar() {
-    }
-
-    public HybridCar(String description, double avgKmPerLitre, int cylinders, int batterySize) {
+    public HybridCar(String description, double avgKmPerLitre, int cylinders,
+                     int batterySize) {
         super(description);
         this.avgKmPerLitre = avgKmPerLitre;
         this.cylinders = cylinders;
@@ -16,18 +14,17 @@ public class HybridCar extends Car {
     }
 
     @Override
-    public void drive() {
-        super.drive();
-        System.out.println("Storing power when accelerating");
+    public void startEngine() {
+        System.out.printf("Hybrid -> %d cylinders are fired up%n", cylinders);
+        System.out.printf("Hybrid -> switch %d kWh battery on, Ready!%n", batterySize);
     }
 
     @Override
     protected void runEngine() {
-        super.runEngine();
-        System.out.println("Starting using gas");
+        System.out.printf("Hybrid -> usage below average: %.2f %n", avgKmPerLitre);
     }
 
     public void useStoredEnergy() {
-        System.out.println("Stored energy is used");
+        System.out.println("Hybrid -> stored energy is used");
     }
 }

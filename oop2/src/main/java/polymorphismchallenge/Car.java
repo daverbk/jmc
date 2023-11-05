@@ -3,22 +3,20 @@ package polymorphismchallenge;
 public class Car {
     private String description;
 
-    public Car() {
-    }
-
     public Car(String description) {
         this.description = description;
     }
 
     public void startEngine() {
-        runEngine();
-    }
-
-    public void drive() {
-        System.out.println("Driving a car ...");
+        System.out.println("Car -> startEngine");
     }
 
     protected void runEngine() {
-        System.out.printf("Starting the %s's engine ...%n", this.getClass().getSimpleName());
+        System.out.println("Car -> runEngine");
+    }
+
+    public void drive() {
+        System.out.printf("Car -> driving, class is %s%n", this.getClass().getSimpleName());
+        runEngine();
     }
 }
