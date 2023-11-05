@@ -2,7 +2,7 @@ package polymorphismchallenge;
 
 public class GasPowerCar extends Car {
     private double avgKmPerLitre;
-    private int cylinders;
+    private int cylinders = 6;
 
     public GasPowerCar(String description, double avgKmPerLitre, int cylinders) {
         super(description);
@@ -11,14 +11,12 @@ public class GasPowerCar extends Car {
     }
 
     @Override
-    public void drive() {
-        super.drive();
-        System.out.printf("%d cylinders are roaring%n", cylinders);
+    public void startEngine() {
+        System.out.printf("Gas -> All %d cylinders are fired up, Ready!%n", cylinders);
     }
 
     @Override
     protected void runEngine() {
-        super.runEngine();
-        System.out.printf("%d cylinders are starting rotation%n", cylinders);
+        System.out.printf("Gas -> usage exceeds average: %.2f %n", avgKmPerLitre);
     }
 }

@@ -9,16 +9,13 @@ public class ElectricCar extends Car {
         this.avgKmPerCharge = avgKmPerCharge;
         this.batterySize = batterySize;
     }
-
     @Override
-    public void drive() {
-        super.drive();
-        System.out.printf("The next charge is expected in %.2fkm%n", avgKmPerCharge);
+    public void startEngine() {
+        System.out.printf("BEV -> switch %d kWh battery on, Ready!%n", batterySize);
     }
 
     @Override
-    public void startEngine() {
-        super.startEngine();
-        System.out.printf("Engine of an %s is started%n", this.getClass().getSimpleName());
+    protected void runEngine() {
+        System.out.printf("BEV -> usage under the average: %.2f %n", avgKmPerCharge);
     }
 }

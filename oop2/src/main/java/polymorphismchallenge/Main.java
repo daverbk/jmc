@@ -3,24 +3,25 @@ package polymorphismchallenge;
 public class Main {
     public static void main(String[] args) {
 
-        Car car = new Car();
-        car.startEngine();
-        car.drive();
+        Car car = new Car("2022 Blue Ferrari 296 GTS");
+        runRace(car);
 
-        Car car1 = new ElectricCar("Electric car", 300, 50);
-        car1.startEngine();
-        car1.drive();
+        Car car2 = new GasPowerCar("2022 Blue Ferrari 296 GTS", 15.4, 6);
+        runRace(car2);
 
-        Car car2 = new GasPowerCar("Gas power car", 300, 4);
-        car2.startEngine();
-        car2.drive();
+        Car car3 = new ElectricCar("2022 Red Tesla Model 3", 568, 75);
+        runRace(car3);
 
-        Car car3 = new HybridCar("Hybrid car", 300, 4, 40);
-        car3.startEngine();
-        car3.drive();
+        Car car4 = new HybridCar("2022 Black Ferrari SF90 Stradale", 16, 8, 8);
+        runRace(car4);
 
-        if (car3 instanceof HybridCar hybrid) {
+        if (car4 instanceof HybridCar hybrid) {
             hybrid.useStoredEnergy();
         }
+    }
+
+    public static void runRace(Car car) {
+        car.startEngine();
+        car.drive();
     }
 }
