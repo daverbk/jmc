@@ -11,10 +11,19 @@ public class Main {
         Item avocado = new Item("Topping", "avocado", 1.50);
         avocado.printItem();*/
 
-        Burger burger = new Burger("regular", 4.0);
+        /*Burger burger = new Burger("regular", 4.0);
         burger.addToppings("BACON", "CHEESE", "MAYO");
-        burger.printItem();
+        burger.printItem();*/
 
+        /*MealOrder regularMeal = new MealOrder();
+        regularMeal.addBurgerToppings("BACON", "CHEESE", "MAYO");
+        regularMeal.setDrinkSize("LARGE");
+        regularMeal.printItemizedList();
+        */
 
+        MealOrder secondMeal = new MealOrder("turkey", "7-up", "chili");
+        secondMeal.addBurgerToppings("LETTUCE", "CHEESE", "MAYO");
+        secondMeal.setDrinkSize("SMALL");
+        secondMeal.printItemizedList();
     }
 }
