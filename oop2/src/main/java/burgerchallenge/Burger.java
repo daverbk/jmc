@@ -11,7 +11,7 @@ public class Burger extends Item {
 
     @Override
     public String getName() {
-        return super.getName() + "BURGER";
+        return super.getName() + " BURGER";
     }
 
     @Override
@@ -35,7 +35,7 @@ public class Burger extends Item {
 
         this.extra1 = new Item("TOPPING", extra1, getExtraPrice(extra1));
         this.extra2 = new Item("TOPPING", extra2, getExtraPrice(extra2));
-        this.extra3 = new Item("TOPPING", extra2, getExtraPrice(extra3));
+        this.extra3 = new Item("TOPPING", extra3, getExtraPrice(extra3));
     }
 
     public void printItemizedList() {
@@ -45,10 +45,10 @@ public class Burger extends Item {
             extra1.printItem();
         }
         if (extra2 != null) {
-            extra1.printItem();
+            extra2.printItem();
         }
         if (extra3 != null) {
-            extra1.printItem();
+            extra3.printItem();
         }
     }
 
