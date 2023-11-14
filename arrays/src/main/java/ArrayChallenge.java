@@ -1,10 +1,7 @@
-package arrayschallenge;
-
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 
-public class Main {
+public class ArrayChallenge {
     public static void main(String[] args) {
         int[] unsortedArray = getRandomArray(3);
         int[] sortedArray = sortIntegers(unsortedArray);
