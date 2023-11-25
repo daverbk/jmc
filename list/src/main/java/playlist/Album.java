@@ -15,7 +15,26 @@ public class Album {
     }
 
     public boolean addSong(String title, double duration) {
-        return songs.add(new Song(title, duration));
+        return findSong(title) == null && songs.add(new Song(title, duration));
+    }
+
+    public boolean addToPlayList(int position, LinkedList<Song> playlist) {
+        int index = position - 1;
+        if (index >= songs.size() || index < 0) {
+            return false;
+        }
+
+        Song songToAdd = songs.get(index);
+        return songs.contains(songToAdd)
+                && (playlist.contains(songToAdd)
+                || playlist.add(songToAdd));
+    }
+
+    public boolean addToPlayList(String title, LinkedList<Song> playlist) {
+        Song songToAdd = findSong(title);
+        return songs.contains(songToAdd)
+                && (playlist.contains(songToAdd)
+                || playlist.add(songToAdd));
     }
 
     private Song findSong(String title) {
