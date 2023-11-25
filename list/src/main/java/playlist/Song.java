@@ -15,6 +15,6 @@ public class Song {
 
     @Override
     public String toString() {
-        return String.format("%s: %f", title, duration);
+        return title  + ": " + duration;
     }
 }
