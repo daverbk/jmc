@@ -10,9 +10,9 @@ public class Dog extends Animal {
     public void move(String speed) {
 
         if (speed.equals("slow")) {
-            System.out.println(type + " walking");
+            System.out.println(getExplicitType() + " walking");
         } else {
-            System.out.println(type + " running");
+            System.out.println(getExplicitType() + " running");
         }
     }
 
