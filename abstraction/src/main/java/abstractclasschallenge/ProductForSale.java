@@ -1,9 +1,9 @@
 package abstractclasschallenge;
 
 public abstract class ProductForSale {
-    private String type;
-    private double price;
-    private String description;
+    protected String type;
+    protected double price;
+    protected String description;
 
     public ProductForSale(String type, double price, String description) {
         this.type = type;
@@ -11,25 +11,14 @@ public abstract class ProductForSale {
         this.description = description;
     }
 
-    public void printLineItem(int quantity) {
-        System.out.printf("%d %s(s) %10.2f%n", quantity, type, getSalesPrice(quantity));
-    }
-
     public double getSalesPrice(int quantity) {
         return quantity * price;
     }
 
-    public abstract String showDetails();
-
-    public String getType() {
-        return type;
+    public void printPricedItem(int quantity) {
+        System.out.printf("%2d qty at $%8.2f each, %-15s %-35s %n",
+                quantity, price, type, description);
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
+    public abstract void showDetails();
 }
