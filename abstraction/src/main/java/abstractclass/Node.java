@@ -30,7 +30,10 @@ public class Node extends ListItem {
     }
 
     @Override
-    int compareTo(ListItem listItem) {
-        return listItem.compareTo(this);
+    public int compareTo(ListItem item) {
+        if (item == null) {
+            return -1;
+        }
+        return ((String) super.getValue()).compareTo((String) item.getValue());
     }
 }
