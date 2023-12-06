@@ -1,77 +1,102 @@
 package abstractclass;
 
 public class MyLinkedList implements NodeList {
-    private ListItem root;
+
+    private ListItem root = null;
 
     public MyLinkedList(ListItem root) {
         this.root = root;
     }
 
-    public boolean addItem(ListItem item) {
-        if (root == null) {
-            root = item;
+    @Override
+    public ListItem getRoot() {
+        return this.root;
+    }
+
+    @Override
+    public boolean addItem(ListItem newItem) {
+
+        if (this.root == null) {
+            // the list was empty, so this item becomes the head of the list
+            this.root = newItem;
             return true;
         }
 
-        if (item.compareTo(root) < 0) {
-            ListItem previous = root.previous();
-            previous.setNext(item);
-            item.setNext(root);
-            return true;
-        }
-
-        ListItem initialRoot = root;
-        while (item.compareTo(root) > 0) {
-            if (root.next() == null) {
-                root.setNext(item);
-                root = initialRoot;
+        ListItem currentItem = this.root;
+        while (currentItem != null) {
+            int comparison = (currentItem.compareTo(newItem));
+            if (comparison < 0) {
+                // newItem is greater than currentItem, move right if possible
+                if (currentItem.next() != null) {
+                    currentItem = currentItem.next();
+                } else {
+                    // there is no next, so insert at end of list
+                    currentItem.setNext(newItem).setPrevious(currentItem);
+                    return true;
+                }
+            } else if (comparison > 0) {
+                // newItem is less than currentItem, insert before
+                if (currentItem.previous() != null) {
+                    currentItem.previous().setNext(newItem).setPrevious(currentItem.previous());
+                    newItem.setNext(currentItem).setPrevious(newItem);
+                } else {
+                    // the node with a previous is the root
+                    newItem.setNext(this.root).setPrevious(newItem);
+                    this.root = newItem;
+                }
                 return true;
+            } else {
+                // equal
+                return false;
             }
-
-            if (item.compareTo(root.next()) > 0) {
-                item.setNext(root.next());
-                root.setNext(item);
-                root = initialRoot;
-                return true;
-            }
-
-            root = root.next();
         }
-
         return false;
     }
 
+    @Override
     public boolean removeItem(ListItem item) {
-        ListItem initialRoot = this.root;
-        while (root.next() != null) {
 
-            if (root.compareTo(item) == 0) {
-                root.previous().setNext(root.next());
-                root = initialRoot;
-                return true;
-            }
-
-            root = root.next();
+        if (item != null) {
+            System.out.println("Deleting item " + item.getValue());
         }
 
+        ListItem currentItem = this.root;
+        while (currentItem != null) {
+            int comparison = currentItem.compareTo(item);
+            if (comparison == 0) {
+                // found the item to delete
+                if (currentItem == this.root) {
+                    this.root = currentItem.next();
+                } else {
+                    currentItem.previous().setNext(currentItem.next());
+                    if (currentItem.next() != null) {
+                        currentItem.next().setPrevious(currentItem.previous());
+                    }
+                }
+                return true;
+            } else if (comparison < 0) {
+                currentItem = currentItem.next();
+            } else { // comparison > 0
+                // we are at an item greater than the one to be deleted
+                // so the item is not in the list
+                return false;
+            }
+        }
+        // we have reached the end of the list
+        // without finding the item to delete
         return false;
     }
 
+    @Override
     public void traverse(ListItem root) {
+
         if (root == null) {
             System.out.println("The list is empty");
-            return;
+        } else {
+            while (root != null) {
+                System.out.println(root.getValue());
+                root = root.next();
+            }
         }
-
-        ListItem initialRoot = this.root;
-        while (root.next() != null) {
-            System.out.println(root.next().getValue());
-            root = root.next();
-        }
-        this.root = initialRoot;
-    }
-
-    public ListItem getRoot() {
-        return root;
     }
 }
