@@ -25,5 +25,5 @@ public abstract class ListItem {
 
     abstract ListItem setPrevious(ListItem previous);
 
-    abstract int compareTo(ListItem listItem);
+    abstract int compareTo(ListItem item);
 }
