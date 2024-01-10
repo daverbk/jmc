@@ -1,15 +1,15 @@
 package genericclasschallenge;
 
-public class River extends Line {
+public class Park extends Point {
     private final String name;
 
-    public River(String name, String... locations) {
-        super(locations);
+    public Park(String name, String location) {
+        super(location);
         this.name = name;
     }
 
     @Override
     public String toString() {
-        return name + "River";
+        return name + " National Park";
     }
 }
