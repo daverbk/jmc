@@ -1,7 +1,6 @@
 package genericclasschallenge;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Layer<T extends Mappable> {
@@ -9,25 +8,17 @@ public class Layer<T extends Mappable> {
 
     @SafeVarargs
     public Layer(T... elements) {
-        this.elements = new ArrayList<>(Arrays.asList(elements));
+        this.elements = new ArrayList<>(List.of(elements));
     }
 
     @SafeVarargs
-    public final void addMappables(T... mappables) {
-        for (T mappable : mappables) {
-            if (elements.contains(mappable)) {
-                elements.add(mappable);
-            }
-        }
+    public final void addElements(T... elements) {
+        this.elements.addAll(List.of(elements));
     }
 
-    public void render() {
+    public void renderLayer() {
         for (T element : elements) {
             element.render();
         }
-    }
-
-    public List<T> getMappables() {
-        return elements;
     }
 }
