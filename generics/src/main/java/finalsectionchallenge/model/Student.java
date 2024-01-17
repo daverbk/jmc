@@ -1,20 +1,23 @@
-package genericextras.model;
+package finalsectionchallenge.model;
 
-import genericextras.util.QueryItem;
+import finalsectionchallenge.util.QueryItem;
 
 import java.util.Random;
 
-public class Student implements QueryItem {
-    private String name;
-    private String course;
-    private int yearStarted;
+public class Student implements QueryItem, Comparable<Student> {
+    private static int LAST_ID = 1;
+    private final int id;
+    private final String name;
+    private final String course;
+    private final int yearStarted;
 
     protected static Random random = new Random();
 
-    private static String[] firstNames = {"Ann", "Bill", "Cathy", "John", "Tim"};
-    private static String[] courses = {"C++", "Java", "Python"};
+    private static final String[] firstNames = {"Ann", "Bill", "Cathy", "John", "Tim"};
+    private static final String[] courses = {"C++", "Java", "Python"};
 
     public Student() {
+        id = LAST_ID++;
         int lastNameIndex = random.nextInt(65, 91);
         name = firstNames[random.nextInt(firstNames.length)] + " " + (char) lastNameIndex;
         course = courses[random.nextInt(3)];
@@ -23,7 +26,7 @@ public class Student implements QueryItem {
 
     @Override
     public String toString() {
-        return "%-15s %-15s %d".formatted(name, course, yearStarted);
+        return "%-15d %-15s %-15s %d".formatted(id, name, course, yearStarted);
     }
 
     public int getYearStarted() {
@@ -39,5 +42,10 @@ public class Student implements QueryItem {
             case "YEARSTARTED" -> yearStarted == (Integer.parseInt(value));
             default -> false;
         };
+    }
+
+    @Override
+    public int compareTo(Student other) {
+        return Integer.compare(id, other.id);
     }
 }
