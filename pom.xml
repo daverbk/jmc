@@ -19,6 +19,7 @@
         <module>list</module>
         <module>abstraction</module>
         <module>generics</module>
+        <module>nestedclasses</module>
     </modules>
 
     <properties>
