@@ -20,6 +20,7 @@
         <module>abstraction</module>
         <module>generics</module>
         <module>nestedclasses</module>
+        <module>lambda</module>
     </modules>
 
     <properties>
