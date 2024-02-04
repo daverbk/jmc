@@ -9,7 +9,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>controlflow</artifactId>
+    <groupId>com.studies</groupId>
+    <artifactId>11-nestedclasses</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

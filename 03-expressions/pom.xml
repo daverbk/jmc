@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>firststeps</artifactId>
+    <artifactId>03-expressions</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

@@ -7,10 +7,9 @@
         <groupId>org.studies</groupId>
         <artifactId>jmc</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>arrays</artifactId>
+    <artifactId>02-intellijbasics</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

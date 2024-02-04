@@ -7,9 +7,10 @@
         <groupId>org.studies</groupId>
         <artifactId>jmc</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>expressions</artifactId>
+    <artifactId>07-arrays</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

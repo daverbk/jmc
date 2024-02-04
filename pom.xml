@@ -9,18 +9,18 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>firststeps</module>
-        <module>intellijbasics</module>
-        <module>expressions</module>
-        <module>controlflow</module>
-        <module>oop1</module>
-        <module>oop2</module>
-        <module>arrays</module>
-        <module>list</module>
-        <module>abstraction</module>
-        <module>generics</module>
-        <module>nestedclasses</module>
-        <module>lambda</module>
+        <module>01-firststeps</module>
+        <module>02-intellijbasics</module>
+        <module>03-expressions</module>
+        <module>04-controlflow</module>
+        <module>05-oop1</module>
+        <module>06-oop2</module>
+        <module>07-arrays</module>
+        <module>08-list</module>
+        <module>09-abstraction</module>
+        <module>10-generics</module>
+        <module>11-nestedclasses</module>
+        <module>12-lambda</module>
     </modules>
 
     <properties>
