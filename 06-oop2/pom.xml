@@ -9,8 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.example</groupId>
-    <artifactId>abstraction</artifactId>
+    <artifactId>06-oop2</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
