@@ -20,7 +20,7 @@
       * [The `Consumer` interface](#the-consumer-interface)
       * [The `Predicate` Interface](#the-predicate-interface)
       * [The `Function` Interface](#the-function-interface)
-      * [The Supplier Interface](#the-supplier-interface)
+      * [The `Supplier` Interface](#the-supplier-interface)
     * [Valid Lambda Declarations](#valid-lambda-declarations)
     * [Method Reference](#method-reference)
       * [Deferred Method Invocation](#deferred-method-invocation)
@@ -185,7 +185,7 @@ Example:
 Function<String, String[]> function = s -> s.split(",")
 ```
 
-#### The Supplier Interface
+#### The `Supplier` Interface
 
 Takes no argument, but lambda expressions can use final or effectively final variables in their expressions
 
