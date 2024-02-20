@@ -154,6 +154,8 @@ developers from implementing features based on speculative future requirements
 
 ## Java
 
+[Difference between JDK, JRE, and JVM](https://www.javatpoint.com/difference-between-jdk-jre-and-jvm)
+
 Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation
 dependencies as possible. It is a general-purpose programming language intended to let programmers write once, run
 anywhere (WORA), meaning that compiled Java code can run on all platforms that support Java without the need to
@@ -192,3 +194,23 @@ ways:
 
 * Interpretation 
 * Using a JIT compiler
+
+Java bytecode is a set of instructions executed by the Java virtual machine. In most cases, Java bytecode is generated
+for execution on the Java virtual machine from Java source code. The only original compiler that converts Java code into
+Java bytecode is Javac, created by Sun Microsystems
+
+Javac is an optimizing compiler for the Java language, included in many Java Development Kits (JDKs). The compiler
+accepts source code that conforms to the Java language specification (JLS) and returns bytecode that conforms to the
+Java Virtual Machine Specification (JVMS). Javac is written in Java. Can be called directly from java programs (JSR 199)
+
+<div align="center">
+  <img alt="Difference between JDK, JRE, and JVM" src="knowitassets/jdkjrejvm.png" title="Difference between JDK, JRE, and JVM"/>
+</div>
+
+## JVM
+
+[JVM (Java Virtual Machine) Architecture](https://www.javatpoint.com/jvm-java-virtual-machine)
+
+<div align="center">
+  <img alt="JVM Architecture" src="knowitassets/jvm.png" title="JVM Architecture"/>
+</div>
