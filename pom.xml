@@ -21,6 +21,7 @@
         <module>10-generics</module>
         <module>11-nestedclasses</module>
         <module>12-lambda</module>
+        <module>13-collections</module>
     </modules>
 
     <properties>
