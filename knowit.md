@@ -25,10 +25,14 @@
   * [YAGNI](#yagni)
   * [Java](#java)
     * [JDK](#jdk)
-    * [JRE](#jre-)
-    * [JVM](#jvm-)
-  * [JVM](#jvm)
+    * [JRE](#jre)
+    * [JVM](#jvm)
+    * [Java Bytecode](#java-bytecode)
+    * [`Javac`](#javac)
+  * [JVM](#jvm-1)
     * [Class Loaders](#class-loaders)
+    * [Classpath](#classpath)
+    * [Memory areas](#memory-areas)
 <!-- TOC -->
 
 ## OOP
@@ -42,8 +46,8 @@ One interface, multiple implementations
 
 #### Parametric
 
-In Java, it is implemented using inheritance. The child class inherits the method signatures of the parent class, but the
-implementation of these methods can be different to suit the specifics of the child class. This is called method
+In Java, it is implemented using inheritance. The child class inherits the method signatures of the parent class, but
+the implementation of these methods can be different to suit the specifics of the child class. This is called method
 overriding. Other functions can operate on the parent class object, but one of the child classes will be substituted for
 it at runtime - late binding
 
@@ -165,17 +169,19 @@ recompile
 
 ### JDK
 
-Java Development Kit is a free Java application development kit distributed by Oracle Corporation, 
+Java Development Kit is a free Java application development kit distributed by Oracle Corporation,
 including the Java compiler (`javac`), standard Java class libraries, examples, documentation, various
 utilities and the Java runtime system (JRE)
 
-### JRE 
+### JRE
 
 Java Runtime Environment - minimal (without compiler and other tools development) implementation of the virtual machine
-required for execution of Java applications. Consists of virtual Java Virtual Machine and Java class libraries. The JRE is freely
-available for most platforms can be downloaded from the Oracle website. The development tools, along with the JRE, are included in the JDK
+required for execution of Java applications. Consists of virtual Java Virtual Machine and Java class libraries. The JRE
+is freely
+available for most platforms can be downloaded from the Oracle website. The development tools, along with the JRE, are
+included in the JDK
 
-### JVM 
+### JVM
 
 Java Virtual Machine the main part of the Java runtime system, the so-called Java Runtime Environment (JRE). The Java
 Virtual Machine executes Java bytecode that is pre-generated from the source text of a Java program by the Java
@@ -190,11 +196,12 @@ executed bytecode fragments into machine code to improve performance
 
 Programs intended to run on the JVM must be compiled in a standardized portable binary format, which is typically
 represented as `.class` files. A program can consist of many classes located in different files. To make it easier to
-host large programs, some `.class` files can be packaged together in what is called a `.jar` file (short for Java Archive).
+host large programs, some `.class` files can be packaged together in what is called a `.jar` file (short for Java
+Archive).
 The JVM virtual machine executes `.class` and `.jar` files, emulating the instructions given in them in the following
 ways:
 
-* Interpretation 
+* Interpretation
 * Using a JIT compiler
 
 <div align="center">
@@ -217,14 +224,14 @@ Java Virtual Machine Specification (JVMS). Javac is written in Java. Can be call
 
 The execution of `Javac` is divided into the following phases:
 
-1. All the source files specified on the command line are read, parsed into syntax trees, and then all externally visible
-definitions are entered into the compiler's symbol tables.
-2. All appropriate annotation processors are called. If any annotation processors generate any new source or class files,
-the compilation is restarted, until no new files are created.
-3. Finally, the syntax trees created by the parser are analyzed and translated into class files. During the course of the
-analysis, references to additional classes may be found. The compiler will check the source and class path for these
-classes; if they are found on the source path, those files will be compiled as well, although they will not be subject
-to annotation processing.
+1. All the source files specified on the command line are read, parsed into syntax trees, and then all externally
+   visible definitions are entered into the compiler's symbol tables
+2. All appropriate annotation processors are called. If any annotation processors generate any new source or class
+   files, the compilation is restarted, until no new files are created
+3. Finally, the syntax trees created by the parser are analyzed and translated into class files. During the course of
+   the analysis, references to additional classes may be found. The compiler will check the source and class path for 
+   these classes; if they are found on the source path, those files will be compiled as well, although they will not be
+   subject to annotation processing
 
 <div align="center">
   <img alt="Javac flow" src="assets/javac-flow.png" title="Javac flow"/>
@@ -259,10 +266,12 @@ also use energetic loading of classes, i.e. all symbolic links must be taken int
 
 There are three standard loaders in Java, each of which loads a class from a specific location:
 
-1. `Bootstrap` is a basic loader, also called Primordial ClassLoader. loads standard JDK classes from the `rt.jar` archive
-2. `Extension` ClassLoader – extension loader. loads extension classes, which are located in the `jre/lib/ext` directory by
-   default, but can be set by the `java.ext.dirs` system property
-3. `Application / System` ClassLoader – system loader. loads the application classes defined in the `CLASSPATH` environment variable
+1. `Bootstrap` is a basic loader, also called Primordial ClassLoader. loads standard JDK classes from the `rt.jar`
+   archive
+2. `Extension` ClassLoader – extension loader. loads extension classes, which are located in the `jre/lib/ext` directory
+   by default, but can be set by the `java.ext.dirs` system property
+3. `Application / System` ClassLoader – system loader. loads the application classes defined in the `CLASSPATH`
+   environment variable
 
 If the desired class has not been loaded before, according to the principle of delegation, control is transferred to the
 parent loader, which is located one level higher in the hierarchy. The parent loader also tries to find the desired
@@ -272,14 +281,15 @@ not have information about the required class (i.e. it has not yet been loaded),
 searched according to the location of classes that the loader knows about, and if the class cannot be loaded, control
 will return back to the downloader, which will try to download from sources known to it. As mentioned above, the
 location of classes for the `Bootstrap` loader is the `rt.jar` library, for the `Extension` loader - the directory
-with extensions - `jre/lib/ext`, for the `Application / System` one - `CLASSPATH`, for the user one it can be something different
+with extensions - `jre/lib/ext`, for the `Application / System` one - `CLASSPATH`, for the user one it can be something
+different
 
 ```mermaid
 ---
 title: Class Loader Delegation Model 
 ---
 flowchart TD
-  A(Bootstrap \n ‣ First class search) -->|if class not found|B(Extension)
+    A(Bootstrap \n ‣ First class search) -->|if class not found|B(Extension)
 A --> E{Find Class 🔍} --> F((Class Loaded 🎉))
 B -->|find class|A
 B --> E --> F
@@ -297,8 +307,53 @@ links. These steps are performed in the following order:
    representation
 
 2. Linking — performing verification, preparation and optional permission:
-   * Verification — checking the correctness of the imported type
-   * Preparation — allocating memory for static class variables and initializing memory to default values
-   * Resolution — converting symbolic link types into direct links
+    * Verification — checking the correctness of the imported type
+    * Preparation — allocating memory for static class variables and initializing memory to default values
+    * Resolution — converting symbolic link types into direct links
 
 3. Initialization — calling to Java code that initializes class variables to their correct initial values
+
+The standard way to load a class with a loader different from the current one is a special version of the static
+`Class.forName` method:
+
+```java
+    public static Class forName(String name, boolean initialize, ClassLoader loader);
+```
+
+If the `initialize` value is `true`, then initialization occurs immediately, otherwise it is delayed until the first call to
+any constructor, static method or field of this class
+
+By using separate ClassLoader you can also load the same class from multiple sources, and they will be treated as
+different classes in JVM. J2EE uses multiple class loaders to load a class from a different location like classes
+from the WAR file will be loaded by Web-app ClassLoader while classes bundled in EJB-JAR are loaded by another
+classloader
+
+### Classpath
+
+It specifies a list of directories, JAR files, and ZIP files where the JVM should  look to find and load class files
+
+In addition to Java applications directly (java command), this parameter is also applicable to other JDK utilities, such
+as javac, javadoc and others
+
+There are two main ways to set classpath: in the OS environment variable CLASSPATH, and in the command line argument
+`-cp` (synonymous with `-classpath`). The second method is preferable because it allows you to set different values for
+different applications. Default value is the current directory
+
+The parameter passes the paths to jar files and root directories with packages. Paths are separated by the symbol `:` in
+the command line parameter, or `;` in the environment variable. To include all files in a directory, you can use the `*`
+symbol at the end of the path
+
+If the application is launched from a jar file (java -jar), the classpath must be specified in its manifest. Inside the
+archive, a line like Main-Class is added to the META-INF/MANIFEST.MF file: com.studies.MyClass
+
+### Memory areas
+
+* The class area is designed to store data from .class files: for example, metadata, field and method data, and method
+code. Class area is created automatically when the virtual machine starts, and there is only one class area per VM
+* Heap. The heap stores all objects and their corresponding instance variables. When we create a new instance of
+a class, it is immediately loaded into the heap area, which remains singular while the task is running.
+* Stack. All local variables, method calls and partial results are loaded into it
+* PC register. The PC register stores the addresses of the Java virtual machines currently performing the operation. In
+Java, each thread gets its own PC register
+* Native methods stack. Native methods are methods written in C or C++. The JVM stores stacks that support such
+methods, with a separate native method stack dedicated to each thread.
