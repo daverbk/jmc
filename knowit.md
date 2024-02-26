@@ -357,3 +357,34 @@ a class, it is immediately loaded into the heap area, which remains singular whi
 Java, each thread gets its own PC register
 * Native methods stack. Native methods are methods written in C or C++. The JVM stores stacks that support such
 methods, with a separate native method stack dedicated to each thread.
+
+### Garbage Collection
+
+[Garbage Collection in Java](https://www.javatpoint.com/garbage-collection-in-java)
+
+### Execution Mechanism
+
+Interpretation is the process of reading and executing the source code. It is implemented by a program - an interpreter.
+This type of software is used for testing hardware and software. However, it does not store any information about the
+product being tested
+
+Its parts are:
+
+* Interpreter
+* JIT compiler
+* Garbage collector
+
+Before executing the program, the interpreter and JIT (Just-in-time) compiler convert the bytecode into machine
+instructions. The interpreter does this line by line
+
+At that moment, when a script detects repeating code, a JIT compiler is connected to it to speed up the operation. It
+then compiles the bytecode and replaces it with its own bytecode. This process improves the performance of the entire
+system.
+
+But what is the responsibility of the garbage collector in this case? In some other programming languages (such as C++),
+freeing memory from objects without circular references depends only on the programmer himself. However, in the JVM,
+this is done by the garbage collector, which optimizes memory usage
+
+It is important to note that garbage collection is performed automatically in the JVM after certain periods of time and
+does not require special attention from specialists. Of course, you can try to force this process by calling
+`System.gc()`, but there is no guarantee that this will work
