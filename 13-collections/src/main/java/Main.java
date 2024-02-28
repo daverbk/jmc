@@ -1,3 +1,5 @@
+import durak.Card;
+
 import java.util.*;
 
 public class Main {
@@ -21,10 +23,10 @@ public class Main {
 
         Collections.addAll(deck2, cards);
         Collections.addAll(deck2, cards);
-        Card.printDeck(deck2, "Card Collection with Aces added", 2);
+        Card.printDeck(deck2, "durak.Card Collection with Aces added", 2);
 
         Collections.copy(deck2, kingsOfClubs);
-        Card.printDeck(deck2, "Card Collection with Kings copied", 2);
+        Card.printDeck(deck2, "durak.Card Collection with Kings copied", 2);
 
         List<Card> deck3 = List.copyOf(kingsOfClubs);
         Card.printDeck(deck3, "List Copy of Kings", 1);
