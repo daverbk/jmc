@@ -1,6 +1,7 @@
-package durak;
+package games;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public record Card(Suit suit, String face, int rank) {
@@ -11,6 +12,10 @@ public record Card(Suit suit, String face, int rank) {
         public char getImage() {
             return (new char[]{9827, 9830, 9829, 9824})[ordinal()];
         }
+    }
+
+    public static Comparator<Card> sortRankReversedSuit() {
+        return Comparator.comparing(Card::rank).reversed().thenComparing(Card::suit);
     }
 
     @Override
@@ -42,12 +47,19 @@ public record Card(Suit suit, String face, int rank) {
     }
 
     public static List<Card> getStandardDeck() {
-        return getDeck(2);
+        List<Card> deck = new ArrayList<>();
+        for (Suit suit : Suit.values()) {
+            for (int i = 2; i < 11; i++) {
+                deck.add(getNumericCard(suit, i));
+            }
+            for (char c : "JQKA".toCharArray()) {
+                deck.add(getFaceCard(suit, c));
+            }
+        }
+
+        return deck;
     }
 
-    public static List<Card> getDurakDeck() {
-        return getDeck(6);
-    }
 
     public static void printDeck(List<Card> deck) {
         printDeck(deck, "Current Deck", 4);
@@ -65,19 +77,5 @@ public record Card(Suit suit, String face, int rank) {
             deck.subList(startIndex, endIndex).forEach(c -> System.out.print(c + " "));
             System.out.println();
         }
-    }
-
-    private static List<Card> getDeck(int minNumberCard) {
-        List<Card> deck = new ArrayList<>();
-        for (Suit suit : Suit.values()) {
-            for (int i = minNumberCard; i < 11; i++) {
-                deck.add(getNumericCard(suit, i));
-            }
-            for (char c : "JQKA".toCharArray()) {
-                deck.add(getFaceCard(suit, c));
-            }
-        }
-
-        return deck;
     }
 }
