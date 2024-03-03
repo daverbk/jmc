@@ -1,3 +1,5 @@
+package games;
+
 import games.poker.PokerGame;
 
 public class GameController {
