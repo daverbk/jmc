@@ -31,5 +31,22 @@ public class Main {
             }
             System.out.println();
         }
+
+        PlayingCard aceHearts = new PlayingCard("Hearts", "Ace");
+        PlayingCard kingClubs = new PlayingCard("Clubs", "King");
+        PlayingCard queenSpades = new PlayingCard("Spades", "Queen");
+
+        List<PlayingCard> cards = Arrays.asList(aceHearts, kingClubs, queenSpades);
+        cards.forEach(s -> System.out.println(s + ": " + s.hashCode()));
+
+        Set<PlayingCard> deck = new HashSet<>();
+        for (PlayingCard card : cards) {
+            if (!deck.add(card)) {
+                System.out.println("Duplicate card found: " + card);
+            }
+        }
+        System.out.println(deck);
+
+
     }
 }
