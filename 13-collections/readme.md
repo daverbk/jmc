@@ -149,12 +149,62 @@ Out (LIFO)
 
 | Operation    | Time complexity |
 |--------------|-----------------|
-| `add()`      | `O(1)`          |
+| `add()`      | `O(1)`*         |
 | `remove()`   | `O(1)`          |
 | `contains()` | `O(1)`          |
-|              |                 |
 
-All of that thanks to the internal `HashMap` implementation
+* All of that thanks to the internal `HashMap` implementation
+* `O(1)`* - amortized (as in the worst case scenario it will take `O(n)` if the rehashing of all elements is required when
+    the `Initial Capacity` is reached)
+
+#### `TreeSet`
+
+##### Time complexity
+
+| Operation    | Time complexity |
+|--------------|-----------------|
+| `add()`      | `O(long(n))`    |
+| `remove()`   | `O(long(n))`    |
+| `contains()` | `O(long(n))`    |
+
+* The `O(long(n))` time complexity is caused by the Btree structure and the need to traverse the tree and the need to
+  keep it balanced
+
+##### Interface hierarchy
+
+```mermaid
+classDiagram
+    class Collection
+    class Set
+    class SortedSet {
+        first()
+        last()
+        headSet()
+        tailSet()
+        comparator()
+    }
+    class NavigableSet {
+        ceiling()
+        floor()
+        higher()
+        lower()
+        descendingSet()
+        
+        Implementations:
+        ‣ TreeSet
+    }
+    <<Interface>> Collection
+    <<Interface>> Set
+    <<Interface>> SortedSet
+    <<Interface>> NavigableSet
+    Collection <|-- Set
+    Set <|-- SortedSet
+    SortedSet <|-- NavigableSet
+```
+
+* Elements which implement Comparable (said to have a natural order sort, like Strings and numbers) can be elements of a
+  TreeSet
+* If our elements don't implement Comparable, you must pass a Comparator to the constructor
 
 #### When creating `hashCode()`
 
