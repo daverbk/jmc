@@ -1,4 +1,4 @@
-package finalchallenge;
+package setsmaps.finalchallenge;
 
 public class InventoryItem {
 
