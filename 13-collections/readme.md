@@ -157,6 +157,14 @@ Out (LIFO)
 * `O(1)`* - amortized (as in the worst case scenario it will take `O(n)` if the rehashing of all elements is required when
     the `Initial Capacity` is reached)
 
+#### When creating `hashCode()`
+
+1. It should be very fast to compute
+2. It should produce a consistent result each time it's called
+3. Objects that are considered equal should produce the same hashCode
+4. Values used in the calculation should not be mutable
+
+
 #### `TreeSet`
 
 ##### Time complexity
@@ -167,8 +175,8 @@ Out (LIFO)
 | `remove()`   | `O(long(n))`    |
 | `contains()` | `O(long(n))`    |
 
-* The `O(long(n))` time complexity is caused by the Btree structure and the need to traverse the tree and the need to
-  keep it balanced
+* The `O(long(n))` time complexity is caused by the Btree structure and the need to traverse the tree and keep it
+  balanced
 
 ##### Interface hierarchy
 
@@ -206,12 +214,30 @@ classDiagram
   TreeSet
 * If our elements don't implement Comparable, you must pass a Comparator to the constructor
 
-#### When creating `hashCode()`
+##### `SortedSet` methods
 
-1. It should be very fast to compute
-2. It should produce a consistent result each time it's called
-3. Objects that are considered equal should produce the same hashCode
-4. Values used in the calculation should not be mutable
+| sub set methods                                                                                                           | inclusive                                                                                  | description                                                                                                   |
+|---------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| `headSet(E toElement)`<br/>`headSet(E toElement, boolean inclusive)`                                                      | `toElement` is exclusive if not specified                                                  | returns all elements less than the passed `toElement` (unless `inclusive` is specifically included)           |
+| `tailSet(E fromElement)`<br/>`tailSet(E toElement, boolean inclusive)`                                                    | `fromElement` is inclusive if not specified                                                | returns all elements greater than or equal to the `fromElement` (unless `inclusive` is specifically included) |
+| `subSet(E fromElement, E toElement)`<br/>`subSet(E fromElement, boolean fromInclusive, E toElement, boolean toInclusive)` | `fromElement` is inclusive if not specified,<br/>`toElement` is exclusive if not specified | returns elements greater than or equal to `fromElement` and less than `toElement`                             |
+
+
+* All three methods, headSet, tailSet and subSet return a subset of elements, backed by the original set
+
+##### `NavigableSet` methods
+
+|            | `floor(E)`  (<=)       | `lower(E)`  (<)                                   | `ceiling(E)` (>=)	     | `higher(E)`  (>)                                   |
+|------------|------------------------|---------------------------------------------------|------------------------|----------------------------------------------------|
+| In Set     | Matched Element        | Next Element < Element<br/> or null if none found | Matched Element	       | Next Element > Element<br/>or null if none found   |
+|
+| Not In Set | Next Element < Element | Next Element < Element<br/> or null if none found | Next Element > Element | Next Element > Element <br/> or null if none found |
+
+##### When to use
+
+* If the number of elements is not large, or we want a collection that's sorted, and continuously re-sorted as we add
+  and remove elements, and that shouldn't contain duplicate elements, the `TreeSet` is a good alternative to
+  the `ArrayList`
 
 ## `Map`
 

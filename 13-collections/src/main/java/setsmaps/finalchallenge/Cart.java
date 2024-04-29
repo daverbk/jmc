@@ -1,4 +1,4 @@
-package finalchallenge;
+package setsmaps.finalchallenge;
 
 import java.time.LocalDate;
 import java.util.HashMap;
