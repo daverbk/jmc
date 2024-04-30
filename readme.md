@@ -169,7 +169,7 @@
     * [Comparator's additional helper methods](https://github.com/daverbk/jmc/tree/main/12-lambda#comparators-additional-helper-methods)
 
 ## Collections
-* [Notes](#notes)
+* [Collections](https://github.com/daverbk/jmc/tree/main/13-collections#notes)
     * [The Big Picture](https://github.com/daverbk/jmc/tree/main/13-collections#the-big-picture)
     * [The `Collection` Interface](https://github.com/daverbk/jmc/tree/main/13-collections#the-collection-interface)
         * [`Collection` and `List`](https://github.com/daverbk/jmc/tree/main/13-collections#collection-and-list)
