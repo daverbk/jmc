@@ -360,7 +360,7 @@ methods, with a separate native method stack dedicated to each thread.
 
 ### Garbage Collection
 
-[Garbage Collection in Java](https://www.javatpoint.com/garbage-collection-in-java)
+[Garbage Collection in Java](https://www.javatpoint.com/how-garbage-collection-works-in-java)
 
 ### Execution Mechanism
 

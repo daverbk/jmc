@@ -1,6 +1,5 @@
 # _Conspectus_
 
-
 ## Object Oriented Programming 1
 * [Object Oriented Programming 1](https://github.com/daverbk/jmc/tree/main/05-oop1#notes)
     * [Object Oriented Programming](https://github.com/daverbk/jmc/tree/main/05-oop1#object-oriented-programming)
@@ -168,3 +167,28 @@
             * [For an Unbounded Receiver](https://github.com/daverbk/jmc/tree/main/12-lambda#for-an-unbounded-receiver)
     * [Convenience Methods](https://github.com/daverbk/jmc/tree/main/12-lambda#convenience-methods)
     * [Comparator's additional helper methods](https://github.com/daverbk/jmc/tree/main/12-lambda#comparators-additional-helper-methods)
+## Collections
+* [Notes](#notes)
+    * [The Big Picture](https://github.com/daverbk/jmc/tree/main/13-collections#the-big-picture)
+    * [The `Collection` Interface](https://github.com/daverbk/jmc/tree/main/13-collections#the-collection-interface)
+        * [`Collection` and `List`](https://github.com/daverbk/jmc/tree/main/13-collections#collection-and-list)
+        * [`List` implementations](https://github.com/daverbk/jmc/tree/main/13-collections#list-implementations)
+        * [`Queue`](https://github.com/daverbk/jmc/tree/main/13-collections#queue)
+        * [`Set`](https://github.com/daverbk/jmc/tree/main/13-collections#set)
+            * [`HashSet`, `LinkedHashSet`, `EnumSet`](https://github.com/daverbk/jmc/tree/main/13-collections#hashset-linkedhashset-enumset)
+            * [When creating `hashCode()`](https://github.com/daverbk/jmc/tree/main/13-collections#when-creating-hashcode)
+            * [`TreeSet`](https://github.com/daverbk/jmc/tree/main/13-collections#treeset)
+                * [Time complexity](https://github.com/daverbk/jmc/tree/main/13-collections#time-complexity)
+                * [Interface hierarchy](https://github.com/daverbk/jmc/tree/main/13-collections#interface-hierarchy)
+                * [`SortedSet` methods](https://github.com/daverbk/jmc/tree/main/13-collections#sortedset-methods)
+                * [`NavigableSet` methods](https://github.com/daverbk/jmc/tree/main/13-collections#navigableset-methods)
+                * [When to use](https://github.com/daverbk/jmc/tree/main/13-collections#when-to-use)
+    * [`Map`](https://github.com/daverbk/jmc/tree/main/13-collections#map)
+        * [Implementation](https://github.com/daverbk/jmc/tree/main/13-collections#implementation)
+        * [`HashMap`, `LinkedHashMap`](https://github.com/daverbk/jmc/tree/main/13-collections#hashmap-linkedhashmap)
+        * [`TreeMap`](https://github.com/daverbk/jmc/tree/main/13-collections#treemap)
+            * [`TreeMap`'s View collections](https://github.com/daverbk/jmc/tree/main/13-collections#treemaps-view-collections)
+            * [`EnumSet` and `EnumMap`](https://github.com/daverbk/jmc/tree/main/13-collections#enumset-and-enummap)
+                * [`EnumSet`](https://github.com/daverbk/jmc/tree/main/13-collections#enumset)
+                * [Two Types of `EnumSet` implementations](https://github.com/daverbk/jmc/tree/main/13-collections#two-types-of-enumset-implementations)
+                * [`EnumMap`](https://github.com/daverbk/jmc/tree/main/13-collections#enummap)
