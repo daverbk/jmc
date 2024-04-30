@@ -1,5 +1,32 @@
 # Notes
 
+<!-- TOC -->
+* [Notes](#notes)
+  * [The Big Picture](#the-big-picture)
+  * [The `Collection` Interface](#the-collection-interface)
+    * [`Collection` and `List`](#collection-and-list)
+    * [`List` implementations](#list-implementations)
+    * [`Queue`](#queue)
+    * [`Set`](#set)
+      * [`HashSet`, `LinkedHashSet`, `EnumSet`](#hashset-linkedhashset-enumset)
+      * [When creating `hashCode()`](#when-creating-hashcode)
+      * [`TreeSet`](#treeset)
+        * [Time complexity](#time-complexity)
+        * [Interface hierarchy](#interface-hierarchy)
+        * [`SortedSet` methods](#sortedset-methods)
+        * [`NavigableSet` methods](#navigableset-methods)
+        * [When to use](#when-to-use)
+  * [`Map`](#map)
+    * [Implementation](#implementation)
+    * [`HashMap`, `LinkedHashMap`](#hashmap-linkedhashmap)
+    * [`TreeMap`](#treemap)
+      * [`TreeMap`'s View collections](#treemaps-view-collections)
+      * [`EnumSet` and `EnumMap`](#enumset-and-enummap)
+        * [`EnumSet`](#enumset)
+        * [Two Types of `EnumSet` implementations](#two-types-of-enumset-implementations)
+        * [`EnumMap`](#enummap)
+<!-- TOC -->
+
 ## The Big Picture
 
 ```mermaid
@@ -164,7 +191,6 @@ Out (LIFO)
 3. Objects that are considered equal should produce the same hashCode
 4. Values used in the calculation should not be mutable
 
-
 #### `TreeSet`
 
 ##### Time complexity
@@ -239,9 +265,101 @@ classDiagram
   and remove elements, and that shouldn't contain duplicate elements, the `TreeSet` is a good alternative to
   the `ArrayList`
 
-## `Map`
+## [`Map`](https://www.baeldung.com/java-hashmap-advanced)
 
 * A Map is a collection that stores key and value pairs
 * The keys are a set, and the values are a separate collection, where the key keeps a reference to a value
 * Keys need to be unique, but values don't
 * Elements in a tree are stored in a key value Node, also called an Entry
+
+### Implementation
+
+```mermaid
+classDiagram
+    class Map~K,V~ {
+        Set~K~ ketSet()
+        Set~Map.Entry~K;V~~ entrySet()
+        Collection~V~ values()
+    }
+    class HashMap~K,V~ {
+        Node[] table    
+    }  
+    class `Map.Entry`~K,V~
+    class `HashMap.Node`~K,V~
+    Map <|-- HashMap : implements
+    `Map.Entry` <|-- `HashMap.Node` : implements
+    Map *-- `Map.Entry`
+    HashMap *-- `HashMap.Node`
+```
+
+* The set returned from the `keySet` method, is backed by the map
+* This means changes to the map are reflected in the set, and vice-versa
+* The set supports element removal, which removes the corresponding mapping from the map
+* You can use the methods `remove`, `removeAll`, `retainAll`, and `clear`
+* It does not support the `add` or `addAll` operations
+
+### `HashMap`, `LinkedHashMap`
+
+* The `HashMap` maintains an array of `Nodes`, in a field called `table`, whose size is managed by Java, and whose
+  indices are determined by hashing functions
+* The LinkedHashMap is a key value entry collection, whose keys are ordered by insertion order
+
+| Operation    | Time complexity |
+|--------------|-----------------|
+| `add()`      | `O(1)`*         |
+| `remove()`   | `O(1)`          |
+| `contains()` | `O(1)`          |
+
+### `TreeMap`
+
+* `TreeMap` is a map implementation that keeps its entries sorted according to the natural ordering of its keys or better
+  still using a comparator if provided by the user at construction time
+* `TreeMap` implements `NavigableMap` interface and bases its internal working on the principles of red-black trees
+
+| Operation    | Time complexity |
+|--------------|-----------------|
+| `add()`      | `O(long(n))`    |
+| `remove()`   | `O(long(n))`    |
+| `contains()` | `O(long(n))`    |
+
+#### `TreeMap`'s View collections
+
+| View collection methods                                                                                                  | Notes                                                                                                                                                                                                                                                          |
+|--------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `entrySet()`, `keySet()`, `values()`                                                                                     | Provides views of mappings, keys and values. These are views available to any map, and not just the `TreeMap`.                                                                                                                                                 |
+| `descendingKeySet()`, `descendingKeyMap()`                                                                               | Provides reversed order key set or map, reversed by the key values                                                                                                                                                                                             |
+| `headMap(K key)`,<br/>`headMap(K key, boolean inclusive)`,<br/>`tailMap(K key)`,<br/>`tailMap(K key, boolean inclusive)` | Provides views of either the first or last parts of the map, divided by the key passed<br/>The head map is by default EXCLUSIVE of all elements higher or equal to the key<br/>The tail map is by default INCLUSIVE of all elements higher or equal to the key |
+| `subMap(K fromKey, K toKey)`,<br/>`subMap(K fromKey, boolean inclusive, K toKey, boolean inclusive)`                     | Provides a view of a contiguous section of the map, higher or equal to the `fromKey` and lower than the `toKey`, so the toKey is EXCLUSIVE<br/>The overloaded version allows you to determine the inclusivity you want for both keys                           |
+
+#### `EnumSet` and `EnumMap`
+
+##### `EnumSet`
+
+* The `EnumSet` is a specialized Set implementation for use with enum values
+* All the elements in an EnumSet must come from a single enum type
+* The `EnumSet` is abstract, meaning we can't instantiate it directly
+* It comes with many factory methods to create instances
+* In general, this set has much better performance than using a HashSet, with an enum type
+* Bulk operations (such as `containsAll` and `retainAll`) should run very quickly, in constant time, `O(1)`, if they're run
+  on an `enumSet`, and their argument is an EnumSet
+
+##### Two Types of `EnumSet` implementations
+
+* Enum sets are represented internally as bit vectors, which is just a series of ones and zeros
+* A one indicates that the enum constant (with an ordinal value that is equal to the index of the bit) is in the set
+* A zero indicates the enum constant is not in the set
+* Using a bit vector allows all set operations to use bit math, which makes it very fast
+* A `RegularEnumSet` uses a single long as its bit vector, which means it can contain a maximum of 64 bits, representing
+  64 enum values
+* A `JumboEnumSet` gets returned if you have more than 64 enums
+
+
+##### `EnumMap`
+
+* The Enum Map is a specialized Map implementation for use with enum type keys
+* The keys must all come from the same enum type, and they're ordered naturally by the ordinal value of the enum
+  constants
+* This map has the same functionality as a HashMap, with `O(1)` for basic operations
+* The enum key type is specified during construction of the EnumMap, either explicitly by passing the key type's class,
+  or implicitly by passing another EnumSet
+* In general, this map has better performance than using a HashMap, with an enum type
