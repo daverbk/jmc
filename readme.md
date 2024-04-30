@@ -167,6 +167,7 @@
             * [For an Unbounded Receiver](https://github.com/daverbk/jmc/tree/main/12-lambda#for-an-unbounded-receiver)
     * [Convenience Methods](https://github.com/daverbk/jmc/tree/main/12-lambda#convenience-methods)
     * [Comparator's additional helper methods](https://github.com/daverbk/jmc/tree/main/12-lambda#comparators-additional-helper-methods)
+
 ## Collections
 * [Notes](#notes)
     * [The Big Picture](https://github.com/daverbk/jmc/tree/main/13-collections#the-big-picture)
