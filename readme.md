@@ -193,3 +193,12 @@
                 * [`EnumSet`](https://github.com/daverbk/jmc/tree/main/13-collections#enumset)
                 * [Two Types of `EnumSet` implementations](https://github.com/daverbk/jmc/tree/main/13-collections#two-types-of-enumset-implementations)
                 * [`EnumMap`](https://github.com/daverbk/jmc/tree/main/13-collections#enummap)
+
+## IO
+* [IO](https://github.com/daverbk/jmc/tree/main/18-io#notes)
+    * [Exceptions](https://github.com/daverbk/jmc/tree/main/18-io#exceptions)
+        * [Checked Exception](https://github.com/daverbk/jmc/tree/main/18-io#checked-exception)
+            * [LBYL and EAFP](https://github.com/daverbk/jmc/tree/main/18-io#lbyl-and-eafp)
+        * [Unchecked Exception](https://github.com/daverbk/jmc/tree/main/18-io#unchecked-exception)
+        * [`finally`](https://github.com/daverbk/jmc/tree/main/18-io#finally)
+        * [Try-with-resources](https://github.com/daverbk/jmc/tree/main/18-io#try-with-resources)
