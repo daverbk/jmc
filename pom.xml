@@ -22,6 +22,7 @@
         <module>11-nestedclasses</module>
         <module>12-lambda</module>
         <module>13-collections</module>
+        <module>18-io</module>
     </modules>
 
     <properties>
