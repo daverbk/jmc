@@ -40,15 +40,15 @@ graph TD
     13 --- 14
     10 --- 15
     
-    classDef Red fill:#FF9999;
-    classDef Amber	fill:#FFDEAD;
-    classDef Green fill:#BDFFA4;
-    classDef Blue fill:#87CEEB, font-color:#000000;
+    classDef Red fill:#FF0000;
+    classDef Amber	fill:#FFA500;
+    classDef Green fill:#008000F;
+    classDef Blue fill:#0000FF;
 
     class 1 Blue;
     class 2,3,4,5 Red;
     class 10,11,12,13,14,15 Green;
     class 6,7,8,9 Amber;
 
-    linkStyle default fill: none, stroke: black;
+    linkStyle default fill: none, stroke: grey;
 ```
