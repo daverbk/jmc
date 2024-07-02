@@ -194,6 +194,26 @@
                 * [Two Types of `EnumSet` implementations](https://github.com/daverbk/jmc/tree/main/13-collections#two-types-of-enumset-implementations)
                 * [`EnumMap`](https://github.com/daverbk/jmc/tree/main/13-collections#enummap)
 
+## Immutables
+* [Immutables](https://github.com/daverbk/jmc/tree/main/14-immutables)
+    * [Mutable vs Immutable](https://github.com/daverbk/jmc/tree/main/14-immutables#mutable-vs-immutable)
+        * [Immutable Objects - Advantages](https://github.com/daverbk/jmc/tree/main/14-immutables#immutable-objects---advantages)
+        * [Immutable Objects - Disadvantages](https://github.com/daverbk/jmc/tree/main/14-immutables#immutable-objects---disadvantages)
+    * [`final`](https://github.com/daverbk/jmc/tree/main/14-immutables#final)
+        * [`final` on methods](https://github.com/daverbk/jmc/tree/main/14-immutables#final-on-methods)
+        * [`final` on variables](https://github.com/daverbk/jmc/tree/main/14-immutables#final-on-variables)
+    * [How to declare a class to produce immutable objects](https://github.com/daverbk/jmc/tree/main/14-immutables#how-to-declare-a-class-to-produce-immutable-objects)
+    * [Defensive Copies](https://github.com/daverbk/jmc/tree/main/14-immutables#defensive-copies)
+    * [Shallow Copy vs Deep Copy](https://github.com/daverbk/jmc/tree/main/14-immutables#shallow-copy-vs-deep-copy)
+    * [Unmodifiable Collections vs Unmodifiable Collection Views](https://github.com/daverbk/jmc/tree/main/14-immutables#unmodifiable-collections-vs-unmodifiable-collection-views)
+    * [The instance initializer block](https://github.com/daverbk/jmc/tree/main/14-immutables#the-instance-initializer-block)
+        * [Static Initializers](https://github.com/daverbk/jmc/tree/main/14-immutables#static-initializers)
+    * [Record Constructors](https://github.com/daverbk/jmc/tree/main/14-immutables#record-constructors)
+        * [`Compact`](https://github.com/daverbk/jmc/tree/main/14-immutables#compact)
+    * [`javap`](https://github.com/daverbk/jmc/tree/main/14-immutables#javap)
+    * [`final` classes](https://github.com/daverbk/jmc/tree/main/14-immutables#final-classes)
+    * [`sealed` classes](https://github.com/daverbk/jmc/tree/main/14-immutables#sealed-classes)
+
 ## IO
 * [IO](https://github.com/daverbk/jmc/tree/main/18-io#notes)
     * [Exceptions](https://github.com/daverbk/jmc/tree/main/18-io#exceptions)
