@@ -23,6 +23,7 @@
         <module>12-lambda</module>
         <module>13-collections</module>
         <module>14-immutables</module>
+        <module>15-streams</module>
         <module>18-io</module>
     </modules>
 
