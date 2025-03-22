@@ -16,22 +16,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Checkout into ${{ env.working-directory }}
+        run: |
+          cd ${{ env.working-directory }}
+
       - uses: actions/setup-node@v4
-        working-directory: ${{ env.working-directory }}
         with:
           node-version: 18
           cache: npm
 
       - name: Install dependencies
-        working-directory: ${{ env.working-directory }}
         run: npm install
 
       - name: Build website
-        working-directory: ${{ env.working-directory }}
         run: npm run build
 
       - name: Upload Build Artifact
-        working-directory: ${{ env.working-directory }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: build
@@ -50,7 +50,10 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout into ${{ env.working-directory }}
+        run: |
+          cd ${{ env.working-directory }}
+
       - name: Deploy to GitHub Pages
         id: deployment
-        working-directory: ${{ env.working-directory }}
         uses: actions/deploy-pages@v4
