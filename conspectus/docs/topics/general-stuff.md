@@ -179,7 +179,7 @@ ways:
 * Using a JIT compiler
 
 <div align="center">
-  <img alt="Difference between JDK, JRE, and JVM" src="/img/jdkjrejvm.png" title="Difference between JDK, JRE, and JVM"/>
+  <img alt="Difference between JDK, JRE, and JVM" src="/jmc/img/jdkjrejvm.png" title="Difference between JDK, JRE, and JVM"/>
 </div>
 
 ### Java Bytecode
@@ -208,7 +208,7 @@ The execution of `Javac` is divided into the following phases:
    subject to annotation processing
 
 <div align="center">
-  <img alt="Javac flow" src="/img/javac-flow.png" title="Javac flow"/>
+  <img alt="Javac flow" src="/jmc/img/javac-flow.png" title="Javac flow"/>
 </div>
 
 ## JVM
@@ -222,7 +222,7 @@ The Java Virtual Machine consists of three separate components:
 * Execution Mechanism
 
 <div align="center">
-  <img alt="JVM Architecture" src="/img/jvm.png" title="JVM Architecture"/>
+  <img alt="JVM Architecture" src="/jmc/img/jvm.png" title="JVM Architecture"/>
 </div>
 
 ### Class Loaders
