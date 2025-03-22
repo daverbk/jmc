@@ -1,15 +1,13 @@
-# Notes
+---
+slug: /nested-classes
+title: Nested Classes 🪆
+description: Sealed and nested classes.
+sidebar_position: 7
+sidebar_custom_props:
+  emoji: 🪆
+---
 
-<!-- TOC -->
-* [Notes](#notes)
-  * [Nested Classes](#nested-classes)
-    * [Static Nested Class](#static-nested-class)
-    * [Inner Classes](#inner-classes)
-    * [Local Classes](#local-classes)
-      * [Local Class's 'Captured Variables'](#local-classs-captured-variables)
-      * [Effectively Final](#effectively-final)
-    * [Anonymous Classes](#anonymous-classes)
-<!-- TOC -->
+# Nested Classes 
 
 A class can contain other types within the class body, such as other `classes`, `interfaces`, `enums`, and `records`
 

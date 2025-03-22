@@ -1,0 +1,9 @@
+{
+  "label": "Java",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "slug": "/",
+    "description": "💼 Some basic java concepts. Those docs might be helpful to prepare for interviews. 🚀"
+  }
+}

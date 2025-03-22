@@ -1,35 +1,13 @@
-# Notes
+---
+slug: /lambdas
+title: Lambdas 🎭
+description: Anonymous classes. Lambdas.
+sidebar_position: 8
+sidebar_custom_props:
+  emoji: 🎭
+---
 
-<!-- TOC -->
-* [Notes](#notes)
-  * [The Lambda Expression](#the-lambda-expression)
-  * [Anonymous class and the lambda expression](#anonymous-class-and-the-lambda-expression)
-    * [Anonymous Class](#anonymous-class)
-    * [Lambda Expression](#lambda-expression)
-      * [Lambda expression variations](#lambda-expression-variations)
-        * [For a single parameter](#for-a-single-parameter)
-        * [The lambda body](#the-lambda-body)
-          * [Single expression](#single-expression)
-          * [Code block](#code-block)
-        * [With multiple parameters](#with-multiple-parameters)
-        * [The lambda body](#the-lambda-body-1)
-          * [Single expression](#single-expression-1)
-          * [Code block](#code-block-1)
-  * [`java.util.function`](#javautilfunction)
-    * [Basic categories of Functional Interfaces](#basic-categories-of-functional-interfaces)
-      * [The `Consumer` interface](#the-consumer-interface)
-      * [The `Predicate` Interface](#the-predicate-interface)
-      * [The `Function` Interface](#the-function-interface)
-      * [The `Supplier` Interface](#the-supplier-interface)
-    * [Valid Lambda Declarations](#valid-lambda-declarations)
-    * [Method Reference](#method-reference)
-      * [Deferred Method Invocation](#deferred-method-invocation)
-      * [For static methods](#for-static-methods)
-      * [For a Bounded Receiver](#for-a-bounded-receiver)
-      * [For an Unbounded Receiver](#for-an-unbounded-receiver)
-  * [Convenience Methods](#convenience-methods)
-  * [Comparator's additional helper methods](#comparators-additional-helper-methods)
-<!-- TOC -->
+# Lambda 
 
 * A lambda expression can be thought of as implicit code for an anonymous class, using a special kind of interface, as
   the

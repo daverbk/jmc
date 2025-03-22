@@ -1,39 +1,13 @@
-# Things to know about development and Java
+---
+slug: /general-stuff
+title: Development concepts 🧱
+description: Some important stuff that one tends to forget.
+sidebar_position: 0 
+sidebar_custom_props:
+  emoji: 🧱
+---
 
-<!-- TOC -->
-* [Things to know about development and Java](#things-to-know-about-development-and-java)
-  * [OOP](#oop)
-    * [Polymorphism](#polymorphism)
-      * [Parametric](#parametric)
-      * [Ad hock](#ad-hock)
-    * [Inheritance](#inheritance)
-    * [Encapsulation](#encapsulation)
-    * [Abstraction](#abstraction)
-  * [SOLID](#solid)
-    * [S — Single Responsibility](#s--single-responsibility)
-    * [O — Open-Closed](#o--open-closed)
-    * [L — Liskov Substitution](#l--liskov-substitution)
-    * [I — Interface Segregation](#i--interface-segregation)
-    * [D — Dependency Inversion](#d--dependency-inversion)
-  * [ACID](#acid)
-    * [Atomicity](#atomicity)
-    * [Consistency](#consistency)
-    * [Isolation](#isolation)
-    * [Durability](#durability)
-  * [KISS](#kiss)
-  * [DRY](#dry)
-  * [YAGNI](#yagni)
-  * [Java](#java)
-    * [JDK](#jdk)
-    * [JRE](#jre)
-    * [JVM](#jvm)
-    * [Java Bytecode](#java-bytecode)
-    * [`Javac`](#javac)
-  * [JVM](#jvm-1)
-    * [Class Loaders](#class-loaders)
-    * [Classpath](#classpath)
-    * [Memory areas](#memory-areas)
-<!-- TOC -->
+# Things to know about development and Java
 
 ## OOP
 
@@ -205,7 +179,7 @@ ways:
 * Using a JIT compiler
 
 <div align="center">
-  <img alt="Difference between JDK, JRE, and JVM" src="assets/jdkjrejvm.png" title="Difference between JDK, JRE, and JVM"/>
+  <img alt="Difference between JDK, JRE, and JVM" src="/img/jdkjrejvm.png" title="Difference between JDK, JRE, and JVM"/>
 </div>
 
 ### Java Bytecode
@@ -234,7 +208,7 @@ The execution of `Javac` is divided into the following phases:
    subject to annotation processing
 
 <div align="center">
-  <img alt="Javac flow" src="assets/javac-flow.png" title="Javac flow"/>
+  <img alt="Javac flow" src="/img/javac-flow.png" title="Javac flow"/>
 </div>
 
 ## JVM
@@ -248,7 +222,7 @@ The Java Virtual Machine consists of three separate components:
 * Execution Mechanism
 
 <div align="center">
-  <img alt="JVM Architecture" src="assets/jvm.png" title="JVM Architecture"/>
+  <img alt="JVM Architecture" src="/img/jvm.png" title="JVM Architecture"/>
 </div>
 
 ### Class Loaders

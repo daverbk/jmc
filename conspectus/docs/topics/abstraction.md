@@ -1,19 +1,13 @@
-# Notes
+---
+slug: /abstraction
+title: Abstraction 🔮
+description: Abstract classes and Interfaces.
+sidebar_position: 5
+sidebar_custom_props:
+  emoji: 🔮
+---
 
-<!-- TOC -->
-* [Notes](#notes)
-  * [Abstract method](#abstract-method)
-  * [Concrete method](#concrete-method)
-  * [Method Modifiers](#method-modifiers)
-  * [Abstract class](#abstract-class)
-    * [When](#when)
-  * [Interface](#interface)
-    * [When](#when-1)
-  * [Abstract class vs Interface](#abstract-class-vs-interface)
-  * [A class can use extends and implements in same declaration](#a-class-can-use-extends-and-implements-in-same-declaration)
-  * [`final` modifier](#final-modifier)
-  * [Constants](#constants)
-<!-- TOC -->
+# Abstraction 
 
 Java supports abstraction in several different ways:
 
