@@ -9,9 +9,8 @@ jobs:
   build:
     name: Build Docusaurus
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: conspectus
+    env:
+      working-directory: ./conspectus
 
     steps:
       - uses: actions/checkout@v4
@@ -37,9 +36,8 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     needs: build
-    defaults:
-      run:
-        working-directory: conspectus
+    env:
+      working-directory: ./conspectus
 
     permissions:
       pages: write
