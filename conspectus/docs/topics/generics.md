@@ -1,22 +1,13 @@
-# Notes
+---
+slug: /generics
+title: Generics 🧬
+description: Generic typing.
+sidebar_position: 6
+sidebar_custom_props:
+  emoji: 🧬
+---
 
-<!-- TOC -->
-* [Notes](#notes)
-  * [Convention](#convention)
-  * [Raw use](#raw-use)
-  * [Specifying an upper bound](#specifying-an-upper-bound)
-  * [Comparable](#comparable)
-  * [Comparable vs Comparator](#comparable-vs-comparator)
-  * [Limitation of a reference of generic class](#limitation-of-a-reference-of-generic-class)
-  * [Generic method](#generic-method)
-    * [Type Parameters](#type-parameters)
-      * [Generic class](#generic-class)
-      * [Generic method](#generic-method-1)
-    * [Type Arguments](#type-arguments)
-    * [Wildcards](#wildcards)
-  * [Type Erasure](#type-erasure)
-  * [Using Multiple types to declare an Upper Bound](#using-multiple-types-to-declare-an-upper-bound)
-<!-- TOC -->
+# Generics 
 
 * Generics allow us to create classes, to design them, in a general way, without really worrying about the specific
   details of the elements they might contain
@@ -100,8 +91,9 @@ List<Student>
 
 * Only List subtypes with Student elements can be assigned to this variable or method argument.
 
-> [!CAUTION]
-> We can't assign a list of Student subtypes to this!
+:::caution
+We can't assign a list of Student subtypes to this!
+:::
 
 ## Generic method
 
@@ -176,5 +168,6 @@ true type
 public class GenericClass<T extends AbstractClassA & InterfaceA & InterfaceB> {}
 ```
 
-> [!NOTE]
-> `&` means any type must be a subtype of all 
+:::note
+`&` means any type must be a subtype of all 
+:::

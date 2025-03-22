@@ -1,14 +1,13 @@
-# Notes
+---
+slug: /io
+title: Input & Output 🦦
+description: Input & Output streams. Exceptions.
+sidebar_position: 11
+sidebar_custom_props:
+  emoji: 🦦
+---
 
-<!-- TOC -->
-* [Notes](#notes)
-  * [Exceptions](#exceptions)
-    * [Checked Exception](#checked-exception)
-      * [LBYL and EAFP](#lbyl-and-eafp)
-    * [Unchecked Exception](#unchecked-exception)
-    * [`finally`](#finally)
-    * [Try-with-resources](#try-with-resources)
-<!-- TOC -->
+# IO
 
 ## Exceptions
 
@@ -111,9 +110,9 @@ Disadvantages:
 
 ### Try-with-resources
 
-| try-with-resources  examples                      | traditional try clause                     |
-|---------------------------------------------------|--------------------------------------------|
-| ![try](src/main/resources/try-with-resources.png) | ![try](src/main/resources/try-finally.png) |
+| try-with-resources  examples                                     | traditional try clause                                    |
+|------------------------------------------------------------------|-----------------------------------------------------------|
+| ![try](../../../18-io/src/main/resources/try-with-resources.png) | ![try](../../../18-io/src/main/resources/try-finally.png) |
 
 * The try-with-resources takes a colon delimited list of resource variables
 * The resources in this list must implement the `AutoCloseable` or the `Closeable` interface

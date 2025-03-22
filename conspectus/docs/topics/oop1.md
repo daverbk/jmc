@@ -1,41 +1,13 @@
-# Notes
+---
+slug: /oop1
+title: OOP Part 1 📚
+description: Object Oriented Programming Part 1.
+sidebar_position: 1
+sidebar_custom_props:
+  emoji: 📚 
+---
 
-<!-- TOC -->
-* [Notes](#notes)
-  * [Object Oriented Programming](#object-oriented-programming)
-  * [Organizing classes](#organizing-classes)
-  * [Access modifiers for the class](#access-modifiers-for-the-class)
-  * [Access modifiers for class members](#access-modifiers-for-class-members)
-  * [Encapsulation](#encapsulation)
-  * [What is null?](#what-is-null)
-  * [Getters / setters](#getters--setters)
-  * [`this`](#this)
-  * [Constructor](#constructor)
-    * [Default constructor](#default-constructor)
-    * [Constructor chaining with this()](#constructor-chaining-with-this)
-  * [Static vs Instance Members](#static-vs-instance-members)
-    * [Static Variables](#static-variables)
-      * [Can be used for](#can-be-used-for)
-    * [Instance Variables](#instance-variables)
-    * [Instance Methods](#instance-methods)
-    * [Advice from Tim](#advice-from-tim)
-  * [Plain Old Java Object](#plain-old-java-object)
-  * [Record](#record)
-    * [Implicit code](#implicit-code)
-    * [Why have an immutable record?](#why-have-an-immutable-record)
-    * [POJO vs. Record](#pojo-vs-record)
-  * [Inheritance](#inheritance)
-    * [`extends`](#extends)
-    * [`super()`](#super)
-    * [this vs super](#this-vs-super)
-    * [Constructor chaining](#constructor-chaining)
-    * [Code Re-use](#code-re-use)
-      * [Overriding a method](#overriding-a-method)
-      * [Overridden method](#overridden-method)
-  * [java.lang.Object](#javalangobject)
-  * [Polymorphism](#polymorphism)
-    * [Method Overloading vs Overriding](#method-overloading-vs-overriding)
-<!-- TOC -->
+# OOP Part 1
 
 ## Object Oriented Programming
 
@@ -123,8 +95,9 @@ Default values for fields on classes
 * Every instance of the class shares the same static variable
 * So if changes are made to that variable, all other instances of that class will see the effect of that change
 
-> [!NOTE]
-> It is considered best practice to use the Class name, and not a reference variable to access a static variable
+:::note
+It is considered best practice to use the Class name, and not a reference variable to access a static variable
+:::
 
 #### Can be used for
 
@@ -147,9 +120,10 @@ Default values for fields on classes
 
 ### Advice from Tim
 
-> [!NOTE]
-> Whenever you see a method that doesn't use instance variables / methods, that method should probably be declared as
-> a `static` method
+:::note
+Whenever you see a method that doesn't use instance variables / methods, that method should probably be declared as
+a `static` method
+:::
 
 ## Plain Old Java Object
 
@@ -192,10 +166,11 @@ For each component in the header, Java generates:
 
 ### POJO vs. Record
 
-> [!NOTE]
-> If you want to modify data on your class, you won't be using the record
-> If you're reading a lot of records, from a database or file source, and simply passing this data around, then the
-> record is a big improvement
+:::note
+If you want to modify data on your class, you won't be using the record
+If you're reading a lot of records, from a database or file source, and simply passing this data around, then the
+record is a big improvement
+:::
 
 ## Inheritance
 
@@ -218,16 +193,18 @@ its parent
 
 ### this vs super
 
-> [!NOTE]
-> We can use either of them anywhere in a class, except for static elements, like a static method. Any attempt to do so
-> there, will lead to compile time errors
+:::note
+We can use either of them anywhere in a class, except for static elements, like a static method. Any attempt to do so
+there, will lead to compile time errors
+:::
 
 ### Constructor chaining
 
-> [!NOTE]
-> Constructor chaining is a practice of reusing a few (one) constructors with the initialization logic inside other
-> constructor overloads passing additional necessary arguments to it. Constructor chaining is an example of a good
-> programming practice
+:::note
+Constructor chaining is a practice of reusing a few (one) constructors with the initialization logic inside other
+constructor overloads passing additional necessary arguments to it. Constructor chaining is an example of a good
+programming practice
+:::
 
 ### Code Re-use
 

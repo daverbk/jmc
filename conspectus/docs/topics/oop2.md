@@ -1,22 +1,13 @@
-# Notes
+---
+slug: /oop2
+title: OOP Part 2 📚
+description: Object Oriented Programming Part 2.
+sidebar_position: 2
+sidebar_custom_props:
+  emoji: 📚 
+---
 
-<!-- TOC -->
-* [Notes](#notes)
-  * [Inheritance vs Composition](#inheritance-vs-composition)
-    * [Advice from Tim](#advice-from-tim)
-      * [Why is Composition preferred?](#why-is-composition-preferred)
-      * [Why is Inheritance less flexible?](#why-is-inheritance-less-flexible)
-  * [Encapsulation](#encapsulation)
-    * [Encapsulation Principles](#encapsulation-principles)
-  * [Polymorphism](#polymorphism)
-    * [Ad-hock](#ad-hock)
-    * [Parametric](#parametric)
-  * [Local Variable Type Inference](#local-variable-type-inference)
-    * [Compile Time Typing](#compile-time-typing)
-    * [Run Time Typing](#run-time-typing)
-    * [`instanceof` operator](#instanceof-operator)
-  * [`package`](#package)
-<!-- TOC -->
+# OOP Part 2
 
 ## Inheritance vs Composition
 
@@ -120,12 +111,14 @@ correct class, either with an import statement, or a qualifying name
 
 It is common practice, to use the reverse domain name to start your own package naming conventions
 
-> [!NOTE]
-> The package statement needs to be the first statement in the code, except for comments
-> 
-> The package statement comes before any import statements
+:::note
+The package statement needs to be the first statement in the code, except for comments
 
-> [!CAUTION]
-> If we don't specify a package statement our class is put to the "Unnamed package" (default one)
-> 
-> We can't qualify the name, if it's in the default package, and can't import classes from the default package
+The package statement comes before any import statements
+:::
+
+:::caution
+If we don't specify a package statement our class is put to the "Unnamed package" (default one)
+ 
+We can't qualify the name, if it's in the default package, and can't import classes from the default package
+:::

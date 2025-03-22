@@ -1,31 +1,13 @@
-# Notes
+---
+slug: /collections
+title: Collections Framework 🧰
+description: The collections framework.
+sidebar_position: 9
+sidebar_custom_props:
+  emoji: 🧰
+---
 
-<!-- TOC -->
-* [Notes](#notes)
-  * [The Big Picture](#the-big-picture)
-  * [The `Collection` Interface](#the-collection-interface)
-    * [`Collection` and `List`](#collection-and-list)
-    * [`List` implementations](#list-implementations)
-    * [`Queue`](#queue)
-    * [`Set`](#set)
-      * [`HashSet`, `LinkedHashSet`, `EnumSet`](#hashset-linkedhashset-enumset)
-      * [When creating `hashCode()`](#when-creating-hashcode)
-      * [`TreeSet`](#treeset)
-        * [Time complexity](#time-complexity)
-        * [Interface hierarchy](#interface-hierarchy)
-        * [`SortedSet` methods](#sortedset-methods)
-        * [`NavigableSet` methods](#navigableset-methods)
-        * [When to use](#when-to-use)
-  * [`Map`](#map)
-    * [Implementation](#implementation)
-    * [`HashMap`, `LinkedHashMap`](#hashmap-linkedhashmap)
-    * [`TreeMap`](#treemap)
-      * [`TreeMap`'s View collections](#treemaps-view-collections)
-      * [`EnumSet` and `EnumMap`](#enumset-and-enummap)
-        * [`EnumSet`](#enumset)
-        * [Two Types of `EnumSet` implementations](#two-types-of-enumset-implementations)
-        * [`EnumMap`](#enummap)
-<!-- TOC -->
+# Collections 
 
 ## The Big Picture
 
@@ -163,8 +145,9 @@ flowchart
 * Most often these may be implemented as First In, First Out (FIFO), but can be implemented like a Stack, as Last In First
 Out (LIFO)
 
-> [!NOTE] 
-> Deque supports both
+:::note
+Deque supports both
+:::
 
 ### `Set`
 
@@ -253,7 +236,6 @@ classDiagram
 
 ##### `NavigableSet` methods
 
-|            | `floor(E)`  (<=)       | `lower(E)`  (<)                                   | `ceiling(E)` (>=)	     | `higher(E)`  (>)                                   |
 |------------|------------------------|---------------------------------------------------|------------------------|----------------------------------------------------|
 | In Set     | Matched Element        | Next Element < Element<br/> or null if none found | Matched Element	       | Next Element > Element<br/>or null if none found   |
 |

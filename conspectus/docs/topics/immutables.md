@@ -1,25 +1,13 @@
-# Notes
+---
+slug: /immutables
+title: Immutables 🐛
+description: Immutability and how to support it.
+sidebar_position: 10
+sidebar_custom_props:
+  emoji: 🐛
+---
 
-<!-- TOC -->
-* [Notes](#notes)
-  * [Mutable vs Immutable](#mutable-vs-immutable)
-    * [Immutable Objects - Advantages](#immutable-objects---advantages)
-    * [Immutable Objects - Disadvantages](#immutable-objects---disadvantages)
-  * [`final`](#final)
-    * [`final` on methods](#final-on-methods)
-    * [`final` on variables](#final-on-variables)
-  * [How to declare a class to produce immutable objects](#how-to-declare-a-class-to-produce-immutable-objects)
-  * [Defensive Copies](#defensive-copies)
-  * [Shallow Copy vs Deep Copy](#shallow-copy-vs-deep-copy)
-  * [Unmodifiable Collections vs Unmodifiable Collection Views](#unmodifiable-collections-vs-unmodifiable-collection-views)
-  * [The instance initializer block](#the-instance-initializer-block)
-    * [Static Initializers](#static-initializers)
-  * [Record Constructors](#record-constructors)
-    * [`Compact`](#compact)
-  * [`javap`](#javap)
-  * [`final` classes](#final-classes)
-  * [`sealed` classes](#sealed-classes)
-<!-- TOC -->
+# Immutables
 
 ## Mutable vs Immutable
 
