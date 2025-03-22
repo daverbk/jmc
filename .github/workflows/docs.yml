@@ -5,9 +5,8 @@ on:
     branches:
       - main
 
-defaults:
-  run:
-    working-directory: ./conspectus
+env:
+  working-directory: ./conspectus
 
 jobs:
   build:
@@ -18,17 +17,21 @@ jobs:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
+        working-directory: ${{ env.working-directory }}
         with:
           node-version: 18
           cache: npm
 
       - name: Install dependencies
+        working-directory: ${{ env.working-directory }}
         run: npm install
 
       - name: Build website
+        working-directory: ${{ env.working-directory }}
         run: npm run build
 
       - name: Upload Build Artifact
+        working-directory: ${{ env.working-directory }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: build
@@ -49,4 +52,5 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
+        working-directory: ${{ env.working-directory }}
         uses: actions/deploy-pages@v4
