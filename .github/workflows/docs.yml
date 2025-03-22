@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  working-directory: ./conspectus
+  conspectus-dir: ./conspectus
 
 jobs:
   build:
@@ -14,27 +14,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Checkout into ${{ env.working-directory }}
-        run: |
-          cd ${{ env.working-directory }}
-
-      - uses: actions/setup-node@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
+          cache-dependency-path: ${{ env.conspectus-dir }}/package-lock.json
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd ${{ env.conspectus-dir }}
+          npm install
 
       - name: Build website
-        run: npm run build
+        run: |
+          cd ${{ env.conspectus-dir }}
+          npm run build
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build
+          path: ${{ env.conspectus-dir }}/build
 
   deploy:
     name: Deploy to GitHub Pages
@@ -49,10 +52,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout into ${{ env.working-directory }}
-        run: |
-          cd ${{ env.working-directory }}
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Deploy to GitHub Pages
         id: deployment
