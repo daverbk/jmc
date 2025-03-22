@@ -4,26 +4,17 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Conspectus',
-  tagline: 'Dinosaurs are cool',
-
-
   url: 'https://daverbk.github.io',
   baseUrl: '/jmc/',
   organizationName: 'daverbk',
   projectName: 'jmc',
   favicon: '/img/favicon.ico',
-
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
-  plugins: [
-    require.resolve('docusaurus-lunr-search')
-  ],
 
   presets: [
     [
@@ -43,6 +34,9 @@ const config: Config = {
     mermaid: true
   },
   themes: ['@docusaurus/theme-mermaid'],
+  plugins: [
+    require.resolve('docusaurus-lunr-search')
+  ],
 
   themeConfig: {
 
@@ -53,7 +47,7 @@ const config: Config = {
     },
 
     navbar: {
-      title: 'Java Master Class Conspectus',
+      title: 'JMC Conspectus',
       items: [
         {
           href: 'https://github.com/daverbk/jmc',
@@ -61,11 +55,6 @@ const config: Config = {
           position: 'right',
         },
       ],
-    },
-    footer: {
-      style: 'dark',
-      links: [],
-      copyright: `Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

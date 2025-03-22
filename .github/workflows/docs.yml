@@ -1,9 +1,7 @@
 name: Deploy Conspectus
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 env:
   conspectus-dir: ./conspectus
