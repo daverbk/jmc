@@ -25,6 +25,7 @@
         <module>14-immutables</module>
         <module>15-streams</module>
         <module>18-io</module>
+      <module>19-concurrency</module>
     </modules>
 
     <properties>
